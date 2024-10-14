@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Álbumes de Travis Scott</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://libur.com.co/cdn/shop/collections/image.jpg?v=1633967303&width=1024');
+            background-repeat: repeat; 
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            display: flex;
+        }
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: flex-start;
+            margin-left: 50px;
+            flex-direction: column; 
+        }
+        .title {
+            font-size: 36px;
+            margin-bottom: 20px; 
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        li img {
+            width: 300px;
+            border-radius: 8px;
+        }
+        .info-panel {
+            flex: 1;
+            display: none;
+            margin-left: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .info-panel-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .info-text {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .info-image {
+            max-width: 250px;
+            width: auto;
+            height: auto;
+            border-radius: 10px;
+        }
+        h3 {
+            margin-top: 10px;
+        }
+        .spotify-btn, .youtube-btn {
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .spotify-btn img {
+            width: 50px;
+        }
+        .youtube-btn img {
+            width: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Travis Scott</div>
+        <ul>
+            <li onclick="showInfo(1)">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfKk3S8Lh03i4lQby03Ocrjs9_qtIrmArZbQ&s" alt="Álbum 1">
+                <p>Utopia</p>
+            </li>
+            <li onclick="showInfo(2)">
+                <img src="https://www.lahiguera.net/musicalia/artistas/travis_scott/disco/7085/travis_scott_rodeo-portada.jpg" alt="Álbum 2">
+                <p>Rodeo</p>
+            </li>
+            <li onclick="showInfo(3)">
+                <img src="https://media.pitchfork.com/photos/5929bc47abf31b7dc7155c9b/master/pass/2a8b2311.jpg" alt="Álbum 3">
+                <p>Birds in the Trap Sing McKnight</p>
+            </li>
+            <li onclick="showInfo(4)">
+                <img src="https://i.scdn.co/image/ab67616d0000b273072e9faef2ef7b6db63834a3" alt="Álbum 4">
+                <p>Astroworld</p>
+            </li>
+        </ul>
+    </div>
+
+    <div id="info-panel" class="info-panel">
+        <div class="info-panel-content">
+            <div class="info-text">
+                <h2 id="album-title">Álbum</h2>
+                <p id="album-description"></p> 
+                <h3>Canciones:</h3>
+                <ul id="album-songs"></ul>
+                <a id="spotify-link" class="spotify-btn" href="#" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify Logo">
+                </a>
+                <a id="youtube-link" class="youtube-btn" href="#" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube Logo">
+                </a>
+            </div>
+            <img id="album-image" class="info-image" src="" alt="Imagen del álbum">
+        </div>
+    </div>
+
+    <script>
+        function showInfo(albumNumber) {
+            var albumTitles = ["Utopia", "Rodeo", "Birds in the Trap Sing McKnight", "Astroworld"];
+            var albumDescriptions = [
+                "UTOPIA es el cuarto álbum de estudio de Travis Scott, lanzado el 28 de julio de 2023. Sirve como continuación de ASTROWORLD.",
+                "Rodeo es el álbum de estudio debut de Travis Scott, lanzado el 4 de septiembre de 2015.",
+                "Birds in the Trap Sing McKnight es el segundo álbum de estudio de Travis Scott, lanzado el 2 de septiembre de 2016. Debutó en el número uno del Billboard 200.",
+                "Astroworld es el tercer álbum de estudio de Travis Scott, inspirado en el desaparecido parque temático AstroWorld de Houston."
+            ];
+            var albumImages = [
+                "https://i.pinimg.com/originals/0b/28/cf/0b28cf8baaadd19043f7792395cb8ade.jpg",
+                "https://m.media-amazon.com/images/I/612kIwVeAuL._AC_UF350,350_QL50_.jpg",
+                "https://m.media-amazon.com/images/I/61o1EOJJaqL._AC_UF894,1000_QL80_.jpg",
+                "https://m.media-amazon.com/images/I/71bfLpaSUJL._AC_UF894,1000_QL80_.jpg"
+            ];
+            var albumSongs = [
+                ["HYAENA", "THANK GOD", "MODERN JAM", "MY EYES", "GOD’S COUNTRY", "SIRENS", "MELTDOWN (feat. DRAKE)", "FE!N (feat. PLAYBOI CARTI)", "DELRESTO (ECHOES) (feat. BEYONCÉ)", "I KNOW?", "TOPIA TWINS (feat. 21 SAVAGE & ROB49)", "CIRCUS MAXIMUS (feat. THE WEEKND & SWAE LEE)", "PARASAIL (feat. YUNG LEAN & DAVE CHAPELLE)", "SKITZO (feat. YOUNG THUG)", "LOST FOREVER (feat. WESTSIDE GUNN)", "LOOOVE (feat. KID CUDI)", "K-POP (feat. BAD BUNNY & THE WEEKND)", "TELEKINESIS (feat. FUTURE & SZA)", "TIL FURTHER NOTICE (feat. 21 SAVAGE & JAMES BLAKE"],
+                ["Pornography", "Oh My Dis Side (feat. Quavo)", "3500 (feat. Future & 2 Chainz)", "Wasted (feat. Juicy J)", "90210 (feat. Kacy Hill)", "Pray 4 Love (feat. The Weeknd)", "Nightcrawler (feat. Swae Lee & Chief Keef)", "Piss On Your Grave (feat. Kanye West)", "Antidote", "Impossible", "Maria I'm Drunk (feat. Justin Bieber, Young Thug)", "Flying High (feat. Toro y Moi)", "I Can Tell", "Apple Pie", "Ok Alright (feat. ScHoolboy Q)", "Never Catch Me"], 
+                ["The Ends", "Way Back", "Coordinate", "Through The Late Night", "Beibs In The Trap", "sdp interlude", "Sweet Sweet", "Outside", "Goosebumps", "First Take", "Pick Up The Phone", "Lose", "Guidance", "Wonderful"],
+                ["SICKO MODE", "R.I.P SCREW", "STOP TRYING TO BE GOD", "NO BYSTANDERS", "SKELETONS", "WAKE UP", "5% TINT", "NC-17", "ASTROTHUNDER", "YOSEMITE", "CAN'T SAY", "WHO? WHAT!", "BUTTERFLY EFFECT", "HOUSTONFORNICATION", "COFFEE BEAN"]
+            ];
+            var spotifyLinks = [
+                "https://open.spotify.com/intl-es/album/18NOKLkZETa4sWwLMIm0UZ", 
+                "https://open.spotify.com/intl-es/album/4PWBTB6NYSKQwfo79I3prg", 
+                "https://open.spotify.com/intl-es/album/42WVQWuf1teDysXiOupIZt", 
+                "https://open.spotify.com/intl-es/album/41GuZcammIkupMPKH2OJ6I" 
+            ];
+            var youtubeLinks = [
+                "https://music.youtube.com/playlist?list=OLAK5uy_lVBIQz7oaPE4-KWRIXhejjCY-MzfuQsdg", 
+                "https://music.youtube.com/playlist?list=OLAK5uy_lBKLcAHHZ6qKzJV5avjy7NF4LN_yq33fw", 
+                "https://music.youtube.com/playlist?list=OLAK5uy_mCq2lxWpaIvIM3OzPtenroh7St1VS9T6M", 
+                "https://music.youtube.com/playlist?list=OLAK5uy_lQBWLW8abzmKVTapMPyyDj2kRaC65qMjA"  
+            ];
+
+            document.getElementById('album-title').innerText = albumTitles[albumNumber - 1];
+            document.getElementById('album-description').innerText = albumDescriptions[albumNumber - 1];
+            document.getElementById('album-image').src = albumImages[albumNumber - 1];
+            document.getElementById('spotify-link').href = spotifyLinks[albumNumber - 1];
+            document.getElementById('youtube-link').href = youtubeLinks[albumNumber - 1];
+
+            var songList = document.getElementById('album-songs');
+            songList.innerHTML = ""; 
+
+            albumSongs[albumNumber - 1].forEach(function(song) {
+                var li = document.createElement('li');
+                li.textContent = song;
+                songList.appendChild(li);
+            });
+
+            document.getElementById('info-panel').style.display = "block";
+        }
+    </script>
+</body>
+</html>
